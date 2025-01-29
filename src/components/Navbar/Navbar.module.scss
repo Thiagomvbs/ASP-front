@@ -1,0 +1,39 @@
+.Link{
+    text-align: center;
+    background: #9ca47f;
+    padding: 15px;
+
+    ul {
+        padding: 0;
+
+        li {
+            list-style: none;
+            display: inline-block;
+            margin: 0 2rem;
+
+            &::after {
+                content: "";
+                display: block;
+                width: 0;
+                height: 2px;
+                background: #fff;
+                transition: width 0.3s;
+            }
+
+            &:hover::after {
+                width: 100%;
+                //transition: width .3s;
+            }
+
+            a {
+                text-decoration: none;
+                font-size: 1.5rem;
+                color: #fff;
+
+                &:visited {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

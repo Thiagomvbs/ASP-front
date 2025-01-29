@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  nginx:
+    build:
+      context: . 
+      dockerfile: Dockerfile
+    ports:
+      - "8042:80"
+    volumes:
+      - ./dist:/usr/share/nginx/html
+    command: ["/bin/sh", "-c", "nginx -g 'daemon off;'"]
+
+  frontend-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - VITE_URL=http://localhost:8000/produtos
