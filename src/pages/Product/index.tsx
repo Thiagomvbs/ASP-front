@@ -12,7 +12,7 @@ function App(){
     const [searchParams, setSearchParams] = useSearchParams();
     const pagina = Number(searchParams.get('pagina') || 1); // Página atual, default 1
     const busca = searchParams.get('busca') || '';
-
+    const [carrinhoAberto, setCarrinhoAberto] = useState(false);
 
     useEffect(() => {
         if (text) {
@@ -28,7 +28,7 @@ function App(){
     
 
     const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault(); // Previne o envio do formulário
+        e.preventDefault();
     }
 
 
@@ -47,15 +47,15 @@ function App(){
                     <button type="submit"></button>
                 </form>
             </div>
-            <main className={estilos.Conteudo}>
+            <main className={`${estilos.Conteudo} ${carrinhoAberto ? estilos.carrinhoAberto : ''}`}>
                 <aside>
                     <FiltroProduto/>
                 </aside>
                 <ProdutoPagina pagina={pagina} busca={busca}/>
             </main>
             <Rodape />
-            
-        </>
+        </>    
+        
     )
 }
 

@@ -4,6 +4,7 @@
     width: 250px;
     margin-left: 10px;
     border-radius:10px;
+    
 
     .Filtro{
         display: flex;
@@ -14,10 +15,16 @@
     }
 
     ul{
-        margin-left: 5px;
+        margin: 5px 0 0 5px;
 
         li{
-            font-size: 18px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin: 5px 0;
+        }
+
+        li:hover{
+            color: #38940d;
         }
     }
 

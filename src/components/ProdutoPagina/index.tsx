@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router';
 import CardProduto from '../../components/CardProduto';
+import { CarrinhoProvider } from '../../context/CarrinhoContext';
 
 const ProdutoPagina = ({ pagina, busca }: { pagina: number; busca: string }) => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -13,7 +14,7 @@ const ProdutoPagina = ({ pagina, busca }: { pagina: number; busca: string }) => 
   return (
     <div>
       <CardProduto pagina={pagina} busca={busca} />
-    </div>
+    </div>  
   );
 };
 
